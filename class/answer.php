@@ -1,23 +1,21 @@
 <?php
-include_once('./question.php');
-include_once('./qsm.php');
 
-class Answer {
-  private $answer;
+class Answer
+{
+  // text
+  // bool
+  private string $contentAnswer;
+  private $isCorrect;
+  const BONNE_REPONSE = true;
 
-  public function __construct($answer)
+  public function __construct($contentAnswer, $isCorrect = false)
   {
-    $this->answer = $answer;
-  } 
-
-  
-  public function getAnswer () {
-    return $this->answer;
+    $this->contentAnswer = $contentAnswer;
+    $this->isCorrect = $isCorrect;
   }
-  
-}
 
-$answer1 = new Answer('it\'s an animal');
-$answer2 = new Answer('it\'s an insect');
-$answer3 = new Answer('it\'s cute');
-$answer4 = new Answer('it\'s a human');
+  public function getContentAnswer()
+  {
+    return $this->contentAnswer;
+  }
+}

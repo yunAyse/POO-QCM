@@ -1,36 +1,25 @@
-<?php 
-include_once('./question.php');
-include_once('./answer.php');
+<?php
 
-class Qcm {
-  
+class Qcm
+{
+
   private array $questions = [];
 
-  public function addQuestion(Question $question) {
+
+  public function addQuestion(Question $question): void
+  {
     $this->questions[] = $question;
   }
 
-  
-  public function getQuestions() {
-    return $this->questions;
+  public function generate () {
+    foreach ($this->questions as $question) {
+      echo $question->getContent();
+    foreach($question->getAnswers() as $answer) {
+      echo $answer->getContentAnswer() . '<br>'; 
+    }
+    echo $question->getExplanation();
+    }
+    
   }
+}
 
-} 
-
-
-$qcm = new Qcm();
-
-$question1 = new Question('what is a cat :');
-
-$qcm->addQuestion($question1);
-$qcm->addAnswer($answer1);
-$qcm->addAnswer($answer2);
-$qcm->addAnswer($answer3);
-$qcm->addAnswer($answer4);
-
-
-var_dump($qcm);
-
-
-
-?>
