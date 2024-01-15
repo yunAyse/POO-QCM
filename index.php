@@ -1,7 +1,12 @@
 <?php
+
+use class\UserManager;
+
 require_once 'class/answer.php';
 require_once 'class/question.php';
-require_once 'class/qsm.php';
+require_once 'class/qcm.php';
+
+require_once 'config/connexion_database.php';
 
 
 $qcm = new Qcm();
