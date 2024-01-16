@@ -1,21 +1,16 @@
 <?php
 
-class Answer
-{
+
+class Answer {
+
   // text
-  // bool
-  private string $contentAnswer;
-  private $isCorrect;
-  const BONNE_REPONSE = true;
+  private $answerContent ;
+  // if its correct [boolean]
+  private $isCorrect = false;
 
-  public function __construct($contentAnswer, $isCorrect = false)
+  public function __construct($answerContent)
   {
-    $this->contentAnswer = $contentAnswer;
-    $this->isCorrect = $isCorrect;
+    $this->answerContent = $answerContent;
   }
-
-  public function getContentAnswer()
-  {
-    return $this->contentAnswer;
-  }
+  
 }

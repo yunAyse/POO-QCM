@@ -1,38 +1,19 @@
 <?php
 
-require_once 'config/connexion_database.php';
 
-class QcmManager
-{
-  private PDO $database;
-
-  public function getQuestions(string $data) : void
-  {
-    $request = $this->database->query('SELECT * FROM question');
-    $questions = $request  
-  }
-}
-
+// question 
 
 class Qcm
 {
 
+  // an array for the questions.
   private array $questions = [];
 
-
-  public function addQuestion(Question $question): void
+  public function addQuestion($questions)
   {
-    $this->questions[] = $question;
-  }
+    $this->questions = $questions;
 
-  public function generate()
-  {
-    foreach ($this->questions as $question) {
-      echo $question->getContent();
-      foreach ($question->getAnswers() as $answer) {
-        echo $answer->getContentAnswer() . '<br>';
-      }
-      echo $question->getExplanation();
+    foreach ($questions as $question) {
     }
   }
 }

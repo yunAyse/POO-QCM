@@ -1,6 +1,11 @@
 <?php
 
-class Question
+
+// content 
+// answer
+// explication de la reponse
+
+class Questions
 {
 
   private string $content;
@@ -8,35 +13,28 @@ class Question
   private string $explanation;
 
 
+  // the question will surely have a content,
   public function __construct($content)
   {
     $this->content = $content;
   }
 
-  public function addAnswer(Answer $answer) : void
+  public function addAnswer(Answer $answers)
   {
-    $this->answers[] = $answer;
+    $this->answers[] = $answers;
   }
 
-  public function setExplanation(string $explanation): void
+  public function setExplanations(string $explanation)
   {
     $this->explanation = $explanation;
   }
 
-  public function getContent(): string
-  {
-    return $this->content;
-  }
-
-  public function getAnswers(): array
-  {
-    return $this->answers;
-  }
-
-  public function getExplanation () : string
+  public function getExplanations()
   {
     return $this->explanation;
   }
 
-
+  public function getAnswer()
+  {
+  }
 }
