@@ -1,7 +1,8 @@
 <?php
 
-// it defines methods to listen in a specific manner.
-interface Travailleur {
+// it declares a set of methods that a class must implement. 
+interface Travailleur
+{
   public function travailler();
 }
 
@@ -59,9 +60,14 @@ class Patron extends Employe
     $this->voiture = $voiture;
   }
 
+  public function travailler() // I still can do the patron's own method.
+  {
+    return 'je suis le patron et je bosse aussi';
+  }
+
   public function presentation()
   {
-    var_dump("Bonjour, je suis $this->prenom $this->nom et j'ai $this->age ans"); 
+    var_dump("Bonjour, je suis $this->prenom $this->nom et j'ai $this->age ans");
   }
 
   public function rouler()
@@ -82,11 +88,24 @@ $patron = new Patron('Joseph', 'Durand', 55, 'Mercedes');
 $patron->presentation();
 $patron->rouler();
 
+
+class Etudiant implements Travailleur 
+{
+  public function travailler() 
+  {
+    return 'je suis un etudiant et je revise';
+  }
+}
+$etudiant = new Etudiant();
+
 // so we call in the function the employe object.
 faireTravailler($employe1);
+faireTravailler($patron);
+faireTravailler($etudiant);
 
 
 // the object parameter is for the instance object that will be affected by the 'travailler' method.
-function faireTravailler($objet) {
+function faireTravailler(Travailleur $objet)
+{  // adding the interface method here, will help to prevent to not write anyhing else than the object. it implements here too. 
   var_dump("Travail en cours : {$objet->travailler()}");
 }
